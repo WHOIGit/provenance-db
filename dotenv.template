@@ -1,0 +1,7 @@
+COUCHDB_HOST=couchdb
+COUCHDB_USER=provenance
+COUCHDB_PASSWORD=provenance
+COUCHDB_DB=provenance
+
+AMQP_HOST=rabbitmq
+AMQP_EXCHANGE=provenance
