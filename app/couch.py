@@ -17,4 +17,4 @@ class CouchLogger(object):
         couchdb_user = os.environ.get('COUCHDB_USER', 'admin')
         couchdb_password = os.environ.get('COUCHDB_PASSWORD', 'password')
         couchdb_db = os.environ.get('COUCHDB_DB', 'provenance')
-        return CouchLogger(f'http://${couchdb_user}:${couchdb_password}@{couchdb_host}:5984', couchdb_db)
+        return CouchLogger(f'http://{couchdb_user}:{couchdb_password}@{couchdb_host}:5984', couchdb_db)
