@@ -3,12 +3,16 @@ version: '3'
 services:
   app:
     build: .
+    command: tail -f /dev/null
     environment:
       COUCHDB_HOST: couchdb
       COUCHDB_USER: ${COUCHDB_USER}
       COUCHDB_PASSWORD: ${COUCHDB_PASSWORD}
       COUCHDB_DB: ${COUCHDB_DB}
       AMQP_HOST: rabbitmq
+    depends_on:
+      - couchdb
+      - rabbitmq
 
   couchdb:
     image: couchdb:latest
