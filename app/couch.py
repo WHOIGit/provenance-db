@@ -5,10 +5,20 @@ from couchdb import Server
 
 class CouchLogger(object):
     def __init__(self, couchdb_url, db_name):
-        self.server = Server(couchdb_url)
-        self.db = self.server[db_name]
+        self.couchdb_url = couchdb_url
+        self.db_name = db_name
+        self.server = None
+
+    def _connect(self):
+        self.server = Server(self.couchdb_url)
+        # create db if it doesn't exist
+        if self.db_name not in self.server:
+            self.server.create(self.db_name)
+        self.db = self.server[self.db_name]
 
     def log(self, entry):
+        if self.server is None:
+            self._connect()
         self.db.save(entry)
 
     @staticmethod
