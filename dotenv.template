@@ -3,5 +3,8 @@ COUCHDB_USER=provenance
 COUCHDB_PASSWORD=provenance
 COUCHDB_DB=provenance
 
-AMQP_HOST=rabbitmq
-AMQP_EXCHANGE=provenance
+RABBITMQ_HOST=localhost
+RABBITMQ_USER=provenance
+RABBITMQ_PASSWORD=provenance
+RABBITMQ_EXCHANGE=provenance
+
